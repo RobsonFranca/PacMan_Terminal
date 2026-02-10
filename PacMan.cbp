@@ -31,7 +31,27 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/game.h" />
+		<Unit filename="include/ghost.h" />
+		<Unit filename="include/map.h" />
+		<Unit filename="include/player.h" />
+		<Unit filename="include/utils.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ghost.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

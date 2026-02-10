@@ -1,20 +1,11 @@
+#include "../include/map.h"
+#include "../include/utils.h"
+
 // ╔╗╚╝║═╦╣╠╩╬▫
+#include <stdio.h>
 
-#define gotoxy(x,y) printf("\033[%d;%dH", (y), (x))
 
-typedef struct{
-    int x;
-    int y;
-    int point;
-    char hidden;
-} Food;
-
-typedef struct{
-    int x;
-    int y;
-} Intersection;
-
-char map[31][200] = {
+const char map[31][200] = {
     "╔═════════════════════════╗ ╔═════════════════════════╗",
     "║                         ║ ║                         ║",
     "║   ╔═════╗   ╔═══════╗   ║ ║   ╔═══════╗   ╔═════╗   ║",
@@ -48,7 +39,7 @@ char map[31][200] = {
     "╚═════════════════════════════════════════════════════╝",
 };
 
-char foods[31][56] = {
+const char foods[31][56] = {
     "                                                       ",
     "  . . . . . . . . . . . .     . . . . . . . . . . . .  ",
     "  .         .           .     .           .         .  ",
@@ -82,7 +73,7 @@ char foods[31][56] = {
     "                                                       ",
 };
 
-char walls[31][56] = {
+const char walls[31][56] = {
     "########################### ###########################",
     "# i         i           i # # i           i         i #",
     "#   #######   #########   # #   #########   #######   #",
@@ -116,18 +107,21 @@ char walls[31][56] = {
     "#######################################################",
 };
 
+
+
 Food f[244];
 Intersection inter[64];
 
 void renderMap()
 {
     // render map
+    gotoxy(0,0);
     printf("[1;34m");
     for(int y=0;y<31;y++){
         printf("%s\n",map[y]);
     }
     printf("[1;37m");
-    gotoxy(27,13);
+    gotoxy(26,12);
     printf("┈┈┈");
 
     // render food
@@ -137,13 +131,13 @@ void renderMap()
         for(int x=0;x<56;x++){
             char c = foods[y][x];
             if(c == '.'){
-                gotoxy(x+1,y+1);
+                gotoxy(x,y);
                 printf("%s","▪");
                 Food f_aux = {x,y,10,0};
                 f[i++] = f_aux;
             }
             if(c == '0'){
-                gotoxy(x+1,y+1);
+                gotoxy(x,y);
                 printf("%s","■");
                 Food f_aux = {x,y,50,0};
                 f[i++] = f_aux;
@@ -160,6 +154,7 @@ void renderMap()
             }
         }
     }
+
     //gotoxy(60,10);
     //printf("%d",i);
 

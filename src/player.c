@@ -1,22 +1,7 @@
-#define _gotoxy_p(x,y) printf("\033[%d;%dH", (y+1), (x+1))
-
-enum DIRECTION {
-    UP,RIGHT,LEFT,DOWN,STOP
-};
-enum STATUS_GAME{RUNING,STOPED};
-
-typedef struct {
-    int x;
-    int x_ant;
-    int y;
-    int y_ant;
-    enum DIRECTION dir;
-    enum DIRECTION pre_dir;
-    int point;
-    int life;
-    int power_time;
-    char is_power;
-} Player;
+#include "../include/player.h"
+#include "../include/map.h"
+#include "../include/ghost.h"
+#include "../include/game.h"
 
 Player p = {13,13,23,23,STOP,STOP,0,3};
 int interator = 0;
@@ -33,14 +18,9 @@ void initPlayer()
     renderPlayer();
 }
 
-void gotoxy_p(int x, int y)
-{
-    _gotoxy_p(x,y);
-}
-
 void renderPlayer()
 {
-    gotoxy_p(p.x_ant+p.x_ant,p.y_ant);
+    gotoxy(p.x_ant+p.x_ant,p.y_ant);
     printf(" ");
     if(p.is_power){
     printf("[34m");
@@ -48,8 +28,8 @@ void renderPlayer()
     printf("[1;33m");
     }
     printf("[1m");
-    gotoxy_p(p.x+p.x,p.y);
-    printf("●");
+    gotoxy(p.x+p.x,p.y);
+    printf("C");
     printf("[0m");
 }
 
@@ -198,11 +178,11 @@ void updatePlayer()
 
 void debugPlayer()
 {
-    _gotoxy_p(60,2);
+    gotoxy(60,2);
     printf("X:%d,Y:%d  ",(int)(p.x+p.x),(int)p.y);
-    _gotoxy_p(60,3);
+    gotoxy(60,3);
     printf("X_ANT:%d,Y_ANT:%d  ",p.x_ant+p.x_ant,p.y_ant);
-    _gotoxy_p(60,4);
+    gotoxy(60,4);
     printf("DIRECTION:");
     switch(p.dir){
     case LEFT:
@@ -221,7 +201,7 @@ void debugPlayer()
         printf("STOP ");
         break;
     }
-    _gotoxy_p(60,5);
+    gotoxy(60,5);
     printf("PRE DIRECTION:");
     switch(p.pre_dir){
     case LEFT:
@@ -240,11 +220,11 @@ void debugPlayer()
         printf("STOP ");
         break;
     }
-    _gotoxy_p(60,6);
+    gotoxy(60,6);
     printf("SCORE:%d  ",p.point);
-    _gotoxy_p(60,7);
+    gotoxy(60,7);
     printf("LIFE:%d  ",p.life);
-    _gotoxy_p(60,8);
+    gotoxy(60,8);
     printf("POWER:");
     if(p.is_power){
     printf("TRUE  ");
@@ -261,4 +241,9 @@ char getIsPowerPlayer()
 char getHasLifePlayer()
 {
     return p.life > 0;
+}
+
+void getPosPlayer(int*x, int*y){
+    *x = p.x;
+    *y = p.y;
 }

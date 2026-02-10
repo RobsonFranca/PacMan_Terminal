@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1770688574 source:c:\users\robson\documents\projetos\c\pacman_terminal\map.c
+	<stdio.h>
+
+1770691857 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\map.c
+	"../include/map.h"
+	"../include/utils.h"
+	<stdio.h>
+
+1770690909 c:\users\robson\documents\projetos\c\pacman_terminal\include\map.h
+
+1770690733 c:\users\robson\documents\projetos\c\pacman_terminal\include\utils.h
+	<stdio.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+
+1770696219 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\ghost.c
+	"../include/ghost.h"
+	"../include/utils.h"
+	"../include/map.h"
+	"../include/player.h"
+	<stdlib.h>
+	<time.h>
+	<math.h>
+
+1770693264 c:\users\robson\documents\projetos\c\pacman_terminal\include\ghost.h
+	"utils.h"
+
+1770693326 c:\users\robson\documents\projetos\c\pacman_terminal\include\player.h
+	"utils.h"
+
+1770693318 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\player.c
+	"../include/player.h"
+	"../include/map.h"
+	"../include/ghost.h"
+	"../include/game.h"
+
+1770690470 c:\users\robson\documents\projetos\c\pacman_terminal\include\game.h
+
+1770690222 source:c:\users\robson\documents\projetos\c\pacman_terminal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<Windows.h>
+	"include/game.h"
+	"include/utils.h"
+
+1770691227 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\utils.c
+	"../include/utils.h"
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<Windows.h>
+	<sys/time.h>
+
+1770690668 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\game.c
+	"../include/game.h"
+	"../include/utils.h"
+	"../include/map.h"
+	"../include/player.h"
+	"../include/ghost.h"
+	<Windows.h>
+
