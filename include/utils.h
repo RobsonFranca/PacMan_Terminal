@@ -7,11 +7,16 @@
 #ifdef _WIN32
     #include <conio.h>
     #define EXIST_GETCH
+    #define EXIST_KBHIT
 #else
     #include <termios.h>
     #include <unistd.h>
     char getch(void);
+
+    #include <fcntl.h>
+    int kbhit(void);
 #endif
+
 
 enum DIRECTION {
     UP,RIGHT,LEFT,DOWN,STOP,INI
@@ -20,5 +25,6 @@ enum DIRECTION {
 void config_term();
 struct timeval get_current_time();
 int get_current_time_int();
+void canonical_mode();
 
 #endif // UTILS_H

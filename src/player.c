@@ -6,6 +6,29 @@
 Player p = {13,13,23,23,STOP,STOP,0,3};
 int interator = 0;
 
+int read_command(int key) {
+#ifdef _WIN32
+    if (key == -32) { // Tecla especial no Windows
+        key = getch();
+        if (key == 72) return TECLA_CIMA;
+        if (key == 80) return TECLA_BAIXO;
+        if (key == 75) return TECLA_ESQUERDA;
+        if (key == 77) return TECLA_DIREITA;
+    }
+#else
+    if (key == 27) { // Sequência de escape no Linux
+        if (getch() == 91) {
+            key = getch();
+            if (key == 65) return TECLA_CIMA;
+            if (key == 66) return TECLA_BAIXO;
+            if (key == 68) return TECLA_ESQUERDA;
+            if (key == 67) return TECLA_DIREITA;
+        }
+    }
+#endif
+    return key; // Retorna a tecla normal (W, A, S, D, etc)
+}
+
 void initPlayer()
 {
     p.x_ant = p.x;
@@ -36,17 +59,17 @@ void renderPlayer()
 void movePlayer(char key)
 {
     enum DIRECTION dir_aux;
-    switch(key){
-    case 72:// UP
+    switch(read_command(key)){
+    case TECLA_CIMA:// UP
         dir_aux = UP;
         break;
-    case 77: // RIGHT
+    case TECLA_DIREITA: // RIGHT
         dir_aux = RIGHT;
         break;
-    case 80: // DOWN
+    case TECLA_BAIXO: // DOWN
         dir_aux = DOWN;
         break;
-    case 75: // LEFT
+    case TECLA_ESQUERDA: // LEFT
         dir_aux = LEFT;
         break;
     default:

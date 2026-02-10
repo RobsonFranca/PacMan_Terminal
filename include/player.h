@@ -3,6 +3,11 @@
 
 #include "utils.h"
 
+#define TECLA_CIMA     0x1
+#define TECLA_BAIXO    0x2
+#define TECLA_ESQUERDA 0x3
+#define TECLA_DIREITA  0x4
+
 enum STATUS_GAME{RUNING,STOPED};
 
 typedef struct {

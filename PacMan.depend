@@ -9,13 +9,14 @@
 
 1770690909 c:\users\robson\documents\projetos\c\pacman_terminal\include\map.h
 
-1770690733 c:\users\robson\documents\projetos\c\pacman_terminal\include\utils.h
+1770699829 c:\users\robson\documents\projetos\c\pacman_terminal\include\utils.h
 	<stdio.h>
 	<conio.h>
 	<termios.h>
 	<unistd.h>
+	<fcntl.h>
 
-1770696219 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\ghost.c
+1770696309 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\ghost.c
 	"../include/ghost.h"
 	"../include/utils.h"
 	"../include/map.h"
@@ -27,38 +28,37 @@
 1770693264 c:\users\robson\documents\projetos\c\pacman_terminal\include\ghost.h
 	"utils.h"
 
-1770693326 c:\users\robson\documents\projetos\c\pacman_terminal\include\player.h
+1770700592 c:\users\robson\documents\projetos\c\pacman_terminal\include\player.h
 	"utils.h"
 
-1770693318 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\player.c
+1770700873 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\player.c
 	"../include/player.h"
 	"../include/map.h"
 	"../include/ghost.h"
 	"../include/game.h"
 
-1770690470 c:\users\robson\documents\projetos\c\pacman_terminal\include\game.h
+1770698711 c:\users\robson\documents\projetos\c\pacman_terminal\include\game.h
+	<windows.h>
+	<unistd.h>
 
-1770690222 source:c:\users\robson\documents\projetos\c\pacman_terminal\main.c
+1770700886 source:c:\users\robson\documents\projetos\c\pacman_terminal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
-	<Windows.h>
 	"include/game.h"
 	"include/utils.h"
 
-1770691227 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\utils.c
+1770700375 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\utils.c
 	"../include/utils.h"
 	<stdlib.h>
 	<stdio.h>
 	<time.h>
-	<Windows.h>
 	<sys/time.h>
 
-1770690668 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\game.c
+1770700835 source:c:\users\robson\documents\projetos\c\pacman_terminal\src\game.c
 	"../include/game.h"
 	"../include/utils.h"
 	"../include/map.h"
 	"../include/player.h"
 	"../include/ghost.h"
-	<Windows.h>
 

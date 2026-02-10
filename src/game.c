@@ -4,8 +4,6 @@
 #include "../include/player.h"
 #include "../include/ghost.h"
 
-#include <Windows.h>
-
 const int MAX_FPS = 30;
 int run_game = 0;
 
@@ -19,18 +17,14 @@ void loop(char show_info)
     while(run){
         if(load == 0){
             update();
+            gotoxy(0,100);
             if(kbhit()){
-                char c = _getch();
-                if(c == -32){
-                    key_event(_getch(),1);
-                } else {
-                    key_event(c,0);
-                }
+                key_event(getch(),1);
             }
         }
 
         fps++;
-        Sleep(sleep);
+        _sleep(sleep);
         current_t = get_current_time_int();
         if(current_t-start_t > 0){
             //if(show_info)printf("SLEEP: %d\n",sleep);
